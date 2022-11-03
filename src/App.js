@@ -1,9 +1,12 @@
 import React, { useState, useReducer } from 'react';
-import { FormUpdateContext, FormUpdateDispatchContext } from './components/FormUpdateContext';
+import { FormUpdateDataContext, FormUpdateDispatchContext } from './components/FormUpdateContext';
+
 import GeneralInfoForm from './components/GeneralInfoForm';
 import Header from './components/Header';
 import MainForm from './components/MainForm';
 import ExperienceForm from './components/ExperienceForm';
+
+let nextId = 1;
 
 function App() {
   const [formData, dispatch] = useReducer(
@@ -31,55 +34,101 @@ function App() {
             </ul>
           </MainForm>
         </FormUpdateDispatchContext.Provider>
-      </FormUpdateContext.Provider>
+      </FormUpdateDataContext.Provider>
     </>
   );
 }
 
 function formDataReducer(formData, action) {
   switch (action.type) {
-    case 'edit': {
-      return formData.map(d => {
-        if (d.section === action.task.section) {
-          return action.task;
-        } else {
-          return d;
+    case 'editedInput': {
+      return formData.map((section) => {
+        if (section.section === action.section) {
+          return {
+            ...section,
+            exp: [
+              ...exp,
+              exp.map(experience => {
+                return {
+                  ...experience,
+                  [action.blank]: [action.content]
+                }
+              })
+            ]
+          }
         }
-      });
+      })
     }
-    case 'addExp': {
 
+    case 'addedExp': {
+        // Select only the third object containing info for 'exp'
+        return formData.map((section) => {
+          if (section.section === 'exp') {
+            // Copy and return a new 'exp' object
+            return {
+              ...section,
+              // Where the exp value is a new array containing a new experience
+              exp: [
+                ...exp,
+                {
+                  id: nextId++,
+                  companyName: '',
+                  position: '',
+                  expStart: '',
+                  expEnd: '',
+                  role: ''
+                }
+              ]
+            }
+          }
+        }
+      );
+    }
+    case 'deletedExp': {
+        return formData.map((section) => {
+          if (section.section === 'exp') {
+            return {
+              ...section,
+              exp: [
+                ...exp,
+                exp.filter(experience =>
+                  experience.id !== action.id
+                )
+              ]
+            };
+          }
+        }
+      )
+    }
+    case 'newdeletedExp': {
+      return {
+
+      }
     }
   }
 }
 
-const initialData = [
-  {
-    section: 'generalInfo',
+const initialData = {
+  generalInfo: {
     name: '',
     email: '',
     telNo: ''
   },
-  {
-    section: 'edu',
+  edu: {
     school: '',
     title: '',
     startDate: '',
     endDate: ''
   },
-  {
-    section: 'exp',
-    exp: [
-      {
-        id: 0,
-        companyName: 'test',
-        position: 'test',
-        from: 'test',
-        to: 'test',
-        role: 'test'
-      }, 
-    ]
+  exp: {
+    0: {
+      companyName: '',
+      position: '',
+      from: '',
+      to: '',
+      role: ''
+    }
   }
-]
+}
 
 export default App;
