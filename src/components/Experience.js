@@ -2,40 +2,7 @@ import React, { useContext } from "react";
 import { FormUpdateDataContext, FormUpdateDispatchContext } from "./FormUpdateContext";
 
 export default function Experience({ exp }) {
-  // const [details, setDetails] = useState(exp);
-  const formData = useContext(FormUpdateDataContext);
   const dispatch = useContext(FormUpdateDispatchContext);
-
-  // function handleFormChange(e) {
-  //   switch(e.target.id){
-  //     // Move case-based changing to reducer DO THIS AFTER LUNCH
-  //     case 'companyName':
-  //       return (setDetails({
-  //         ...details,
-  //         companyName: e.target.value
-  //       }));
-  //     case 'position':
-  //       return (setDetails({
-  //         ...details,
-  //         position: e.target.value
-  //       }));
-  //     case 'expStart':
-  //       return (setDetails({
-  //         ...details,
-  //         from: e.target.value
-  //       }));
-  //     case 'expEnd':
-  //       return (setDetails({
-  //         ...details,
-  //         to: e.target.value
-  //       }));
-  //     case 'role':
-  //       return (setDetails({
-  //         ...details,
-  //         role: e.target.value
-  //       }));
-  //   }
-  // }
   
   return (
     <form className="experinece-form" action="">
@@ -44,12 +11,13 @@ export default function Experience({ exp }) {
           <div className="absolute bottom-1 w-10 text-base">Company Name:{' '}</div>
           <input 
             value={exp.companyName}
-            onChange={() => {
+            onChange={e => {
               dispatch({
+                id: exp.id,
                 type: 'editedInput',
                 section: 'exp',
                 blank: 'companyName',
-                content: exp.companyName
+                content: e.target.value  // This is the newest value
               });
             }}
             type="text" 
@@ -63,28 +31,26 @@ export default function Experience({ exp }) {
             className="float-right text-xs h-8 w-8 bg-slate-100 hover:bg-slate-200
             active:bg-slate-300 font-extrabold text-slate-500
              active:text-slate-600"
-             onClick={() => {
+             onClick={e => {
+              e.preventDefault();
               dispatch({
                 type: 'deletedExp',
-                id: exp.id,
+                id: exp.id
               });
             }}
           >✕</button>}
-          {/* e.preventDefault();
-               console.log(`Button at ${exp.id} is pressed.`);
-               console.log(details);
-               handler(exp.id); */}
         </label>
         <label className="relative text-xl h-10">
           <div className="absolute">Position:{' '}</div>
           <input 
             value={exp.position}
-            onChange={() => {
+            onChange={e => {
               dispatch({
+                id: exp.id,
                 type: 'editedInput',
                 section: 'exp',
                 blank: 'position',
-                content: exp.position
+                content: e.target.value
               });
             }}
             type="text" 
@@ -96,12 +62,13 @@ export default function Experience({ exp }) {
           <div className="absolute text-lg">Start Date:{' '}</div>
           <input 
             value={exp.expStart}
-            onChange={() => {
+            onChange={e => {
               dispatch({
+                id: exp.id,
                 type: 'editedInput',
                 section: 'exp',
                 blank: 'expStart',
-                content: exp.expStart
+                content: e.target.value
               });
             }}
             type="date" 
@@ -111,12 +78,13 @@ export default function Experience({ exp }) {
           <div className="absolute left-[15rem] text-lg">End:{' '}</div>
           <input 
             value={exp.expEnd}
-            onChange={() => {
+            onChange={e => {
               dispatch({
+                id: exp.id,
                 type: 'editedInput',
                 section: 'exp',
                 blank: 'expEnd',
-                content: exp.expEnd
+                content: e.target.value
               });
             }}
             type="date"
@@ -128,12 +96,13 @@ export default function Experience({ exp }) {
           <div className="w-10">Role:{' '}</div>
           <textarea 
             value={exp.role}
-            onChange={() => {
+            onChange={e => {
               dispatch({
+                id: exp.id,
                 type: 'editedInput',
                 section: 'exp',
                 blank: 'role',
-                content: exp.role
+                content: e.target.value
               });
             }}
             className="border-2 w-1/2" 

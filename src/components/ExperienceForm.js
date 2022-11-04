@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
+import { FormUpdateDataContext, FormUpdateDispatchContext } from './FormUpdateContext';
 import Experience from "./Experience";
-
-let nextId = 1;
 
 // Take experience form input as children
 export default function ExperienceForm() {
@@ -9,55 +8,22 @@ export default function ExperienceForm() {
   const dispatch = useContext(FormUpdateDispatchContext);
 
   // Not yet implemented
-  function handleSaveEditedExperience(newValues) {
-    const nextId = experienceList.length - 1;
-    setExperienceList(
-      [
-        ...experienceList,
-        {
-          id: nextId,
-          companyName: newValues.companyName,
-          position: newValues.position,
-          from: newValues.from,
-          to: newValues.to,
-          role: newValues.role
-        }
-      ]
-    )
-  }
-
-  // To be reduced
-  function handleAddExperience() {
-    setExperienceList(
-      [
-        ...experienceList,
-        {
-          id: nextId++,
-          companyName: '',
-          position: '',
-          from: '',
-          to: '',
-          role: ''
-        }
-      ]
-    )
-  }
-
-  // To be reduced
-  function handelDeleteExperience(toBeRemovedExpId) {
-    console.log(experienceList);
-    if (experienceList.length == 1) {return};
-    setExperienceList(
-      experienceList.filter(
-      exp => {
-        if (exp.id == toBeRemovedExpId) {console.log(`${exp.id} is being removed.`)};
-        return (
-          exp.id !== toBeRemovedExpId
-        );}
-      )
-    );
-    console.log(experienceList);
-  }
+  // function handleSaveEditedExperience(newValues) {
+  //   const nextId = experienceList.length - 1;
+  //   setExperienceList(
+  //     [
+  //       ...experienceList,
+  //       {
+  //         id: nextId,
+  //         companyName: newValues.companyName,
+  //         position: newValues.position,
+  //         from: newValues.from,
+  //         to: newValues.to,
+  //         role: newValues.role
+  //       }
+  //     ]
+  //   )
+  //}
 
   return (
     <>
@@ -73,13 +39,7 @@ export default function ExperienceForm() {
          active:bg-slate-300 font-extrabold text-slate-400
           active:text-slate-500" onClick={() => {
             dispatch({
-              type: 'added',
-              id: nextId++,
-              companyName: '',
-              position: '',
-              from: '',
-              to: '',
-              role: ''
+              type: 'addedExp'
             })
           }}>+</button>
       </div>
