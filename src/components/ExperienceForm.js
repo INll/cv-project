@@ -39,7 +39,8 @@ export default function ExperienceForm() {
          active:bg-slate-300 font-extrabold text-slate-400
           active:text-slate-500" onClick={() => {
             dispatch({
-              type: 'addedExp'
+              type: 'addedExp',
+              section: 'exp'
             })
           }}>+</button>
       </div>

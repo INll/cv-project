@@ -1,31 +1,29 @@
-import React, { useContext } from "react";
-import { FormUpdateDataContext, FormUpdateDispatchContext } from "./FormUpdateContext";
+import React, { useContext } from 'react';
+import {FormUpdateDispatchContext } from './FormUpdateContext';
 
-export default function Experience({ exp }) {
+export default function Education({ exp }) {
   const dispatch = useContext(FormUpdateDispatchContext);
-  
+
   return (
-    <form className="experinece-form" action="">
+    <form className="general-info-form" action="">
       <div className="flex-container flex flex-col gap-2">
         <label className="relative text-xl h-10">
-          <div className="absolute bottom-1 w-10 text-base">Company Name:{' '}</div>
-          <input 
-            value={exp.companyName}
+          <div className="absolute text-lg">Institution:{' '}</div>
+          <input
+            value={exp.school}
             onChange={e => {
               dispatch({
                 id: exp.id,
                 type: 'editedExp',
-                section: 'exp',
-                blank: 'companyName',
-                content: e.target.value  // This is the newest value
-              });
+                section: 'edu',
+                blank: 'school',
+                content: e.target.value
+              })
             }}
+            id="school"
             type="text" 
-            id="companyName" 
             className="name border-2 absolute left-24 w-1/2"
           />
-          {// Button only shows up if it's not the first component //
-          }
           {exp.id !== 0 && 
           <button 
             className="float-right text-xs h-8 w-8 bg-slate-100 hover:bg-slate-200
@@ -36,39 +34,39 @@ export default function Experience({ exp }) {
               dispatch({
                 type: 'deletedExp',
                 id: exp.id,
-                section: 'exp'
+                section: 'edu'
               });
             }}
           >✕</button>}
         </label>
         <label className="relative text-xl h-10">
-          <div className="absolute">Position:{' '}</div>
-          <input 
-            value={exp.position}
+          <div className="absolute">Title:{' '}</div>
+          <input
+            value={exp.title}
             onChange={e => {
               dispatch({
                 id: exp.id,
                 type: 'editedExp',
-                section: 'exp',
-                blank: 'position',
+                section: 'edu',
+                blank: 'title',
                 content: e.target.value
-              });
+              })
             }}
+            id="title"
             type="text" 
-            id="position" 
             className="name border-2 absolute left-24 w-1/2"
           />
         </label>
         <label className="relative w-[24.8rem] text-xl h-10">
           <div className="absolute text-lg">Start Date:{' '}</div>
           <input 
-            value={exp.expStart}
+            value={exp.eduStart}
             onChange={e => {
               dispatch({
                 id: exp.id,
                 type: 'editedExp',
-                section: 'exp',
-                blank: 'expStart',
+                section: 'edu',
+                blank: 'eduStart',
                 content: e.target.value
               });
             }}
@@ -78,13 +76,13 @@ export default function Experience({ exp }) {
           />
           <div className="absolute left-[15rem] text-lg">End:{' '}</div>
           <input 
-            value={exp.expEnd}
+            value={exp.eduEnd}
             onChange={e => {
               dispatch({
                 id: exp.id,
                 type: 'editedExp',
-                section: 'exp',
-                blank: 'expEnd',
+                section: 'edu',
+                blank: 'eduEnd',
                 content: e.target.value
               });
             }}
@@ -93,27 +91,7 @@ export default function Experience({ exp }) {
             className="name border-2 left-[18rem] w-[7.7rem] absolute"
           />
         </label>
-        <label className="flex text-xl gap-14">
-          <div className="w-10">Role:{' '}</div>
-          <textarea 
-            value={exp.role}
-            onChange={e => {
-              dispatch({
-                id: exp.id,
-                type: 'editedExp',
-                section: 'exp',
-                blank: 'role',
-                content: e.target.value
-              });
-            }}
-            className="border-2 w-1/2" 
-            name="role"
-            id="role"
-            cols="30"
-            rows="2"
-          ></textarea>
-        </label>
       </div>
-    </form> 
+    </form>
   )
-} 
+}
