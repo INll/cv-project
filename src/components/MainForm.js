@@ -14,7 +14,7 @@ export default function MainForm({ children }) {
         }</button>
         <div className="hint-text absolute top-5 text-xs left-1/2 ml-[7.25rem] text-neutral-600 italic">(Supported format: .pdf, .jpeg)</div>
       </div>
-      <div className="formBody inline-block bg-white rounded-md drop-shadow-2xl min-w-full md:min-w-[732px] mb-28 mx-auto">
+      <div className="formBody inline-block bg-white rounded-md drop-shadow-2xl min-w-full md:min-w-[732px] mx-auto">
         {children}
       </div>
     </div>

@@ -154,7 +154,8 @@ const initialData = [
     section: 'generalInfo',
     name: 'Leung Ka Wai',
     email: 'waileungsunny@gmail.com',
-    telNo: '(+852) 5307 1570'
+    telNo: '(+852) 5307 1570',
+    selfIntro: "Hi, I'm Wai, welcome to my curriculum vitae!"
   },
   {
     section: 'edu',
@@ -162,9 +163,9 @@ const initialData = [
       {
         id: 0,
         school: 'CityU',
-        title: 'Student',
-        eduStart: '2022',
-        eduEnd: '2022'
+        degree: "Biomedical Engineering (Bachelor's)",
+        eduStart: '2018-09-01',
+        eduEnd: '2022-09-01'
       }
     ]
   },

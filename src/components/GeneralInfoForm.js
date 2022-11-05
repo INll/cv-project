@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { FormUpdateDispatchContext } from './FormUpdateContext';
 
 
-export default function GeneralInfoForm( info ) {
+export default function GeneralInfoForm({ info }) {
   const dispatch = useContext(FormUpdateDispatchContext);
-
+  
   return (
     <div className="general-info flex flex-col mx-10 my-10 gap-8">
     <div className="title font-bold uppercase text-5xl 
@@ -16,7 +16,7 @@ export default function GeneralInfoForm( info ) {
             <input
               value={info.name}
               type="text" 
-              className="name border-2 absolute left-24 w-1/2"
+              className="name border-2 absolute left-24 w-1/2 px-1"
               onChange={e => {
                 dispatch({
                   type: 'editedInput',
@@ -32,7 +32,7 @@ export default function GeneralInfoForm( info ) {
             <input 
               value={info.email}
               type="text" 
-              className="name border-2 absolute left-24 w-1/2"
+              className="name border-2 absolute left-24 w-1/2 px-1"
               onChange={e => {
                 dispatch({
                   type: 'editedInput',
@@ -48,7 +48,7 @@ export default function GeneralInfoForm( info ) {
             <input 
               value={info.telNo}
               type="text" 
-              className="name border-2 absolute left-24 w-1/2"
+              className="name border-2 absolute left-24 w-1/2 px-1"
               onChange={e => {
                 dispatch({
                   type: 'editedInput',
@@ -58,6 +58,29 @@ export default function GeneralInfoForm( info ) {
                 })
               }}
             />
+          </label>
+          <label className="text-xl">
+            <div className="flex gap-3">
+              <div className="flex flex-col justify-start">
+                <div>Self Intro:{' '}</div>
+                <div className="text-sm font-light italic text-neutral-900">(Not too long!)</div>
+              </div>
+              <textarea
+                value={info.selfIntro}
+                type="text"
+                className="border-2 w-1/2 px-1"
+                onChange={e => {
+                  dispatch({
+                    type: 'editedInput',
+                    section: 'generalInfo',
+                    blank: 'selfIntro',
+                    content: e.target.value
+                  })
+                }}
+                cols="30"
+                rows="2"
+              />
+            </div>
           </label>
         </div>
       </form>

@@ -22,7 +22,7 @@ export default function Experience({ exp }) {
             }}
             type="text" 
             id="companyName" 
-            className="name border-2 absolute left-24 w-1/2"
+            className="name border-2 absolute left-24 w-1/2 px-1"
           />
           {// Button only shows up if it's not the first component //
           }
@@ -56,7 +56,7 @@ export default function Experience({ exp }) {
             }}
             type="text" 
             id="position" 
-            className="name border-2 absolute left-24 w-1/2"
+            className="name border-2 absolute left-24 w-1/2 px-1"
           />
         </label>
         <label className="relative w-[24.8rem] text-xl h-10">
@@ -74,7 +74,7 @@ export default function Experience({ exp }) {
             }}
             type="date" 
             id="expStart"  
-            className="name border-2 left-24 w-[7.7rem] absolute"
+            className="name border-2 left-24 w-[7.7rem] absolute px-1"
           />
           <div className="absolute left-[15rem] text-lg">End:{' '}</div>
           <input 
@@ -90,7 +90,7 @@ export default function Experience({ exp }) {
             }}
             type="date"
             id="expEnd"  
-            className="name border-2 left-[18rem] w-[7.7rem] absolute"
+            className="name border-2 left-[18rem] w-[7.7rem] absolute px-1"
           />
         </label>
         <label className="flex text-xl gap-14">
@@ -106,7 +106,7 @@ export default function Experience({ exp }) {
                 content: e.target.value
               });
             }}
-            className="border-2 w-1/2" 
+            className="border-2 w-1/2 px-1" 
             name="role"
             id="role"
             cols="30"

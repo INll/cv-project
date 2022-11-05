@@ -22,7 +22,7 @@ export default function Education({ exp }) {
             }}
             id="school"
             type="text" 
-            className="name border-2 absolute left-24 w-1/2"
+            className="name border-2 absolute left-24 w-1/2 px-1"
           />
           {exp.id !== 0 && 
           <button 
@@ -40,21 +40,21 @@ export default function Education({ exp }) {
           >✕</button>}
         </label>
         <label className="relative text-xl h-10">
-          <div className="absolute">Title:{' '}</div>
+          <div className="absolute">Degree:{' '}</div>
           <input
-            value={exp.title}
+            value={exp.degree}
             onChange={e => {
               dispatch({
                 id: exp.id,
                 type: 'editedExp',
                 section: 'edu',
-                blank: 'title',
+                blank: 'degree',
                 content: e.target.value
               })
             }}
-            id="title"
+            id="degree"
             type="text" 
-            className="name border-2 absolute left-24 w-1/2"
+            className="name border-2 absolute left-24 w-1/2 px-1"
           />
         </label>
         <label className="relative w-[24.8rem] text-xl h-10">
@@ -72,7 +72,7 @@ export default function Education({ exp }) {
             }}
             type="date" 
             id="expStart"  
-            className="name border-2 left-24 w-[7.7rem] absolute"
+            className="name border-2 left-24 w-[7.7rem] absolute px-1"
           />
           <div className="absolute left-[15rem] text-lg">End:{' '}</div>
           <input 
@@ -88,7 +88,7 @@ export default function Education({ exp }) {
             }}
             type="date"
             id="expEnd"  
-            className="name border-2 left-[18rem] w-[7.7rem] absolute"
+            className="name border-2 left-[18rem] w-[7.7rem] absolute px-1"
           />
         </label>
       </div>

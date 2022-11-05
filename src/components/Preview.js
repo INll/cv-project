@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { FormUpdateDataContext } from './FormUpdateContext';
+import PreviewEducation from './PreviewEducation';
+import PreviewExperience from './PreviewExperience';
 
 export default function Preview() {
   const formData = useContext(FormUpdateDataContext);
@@ -22,12 +24,20 @@ export default function Preview() {
               {formData[0].telNo}
               </div>
           </div>
+          {/* HOW DO I ADD A SMALL BLACK BORDER TO THE LEFT??? */}
+          <div className="quote bg-gradient-to-tr from-neutral-100 to-white rounded-xl text-center px-2 py-5">{formData[0].selfIntro}</div>
         </li>
         <li className='flex flex-col p-8 gap-5'>
-          <div className="uppercase font-bold text-[3.25rem]">Education</div>
+          <div className="font-bold text-3xl">Education</div>
+          {formData[1].exp.map((eduExp) => (
+            <PreviewEducation exp={eduExp} />
+          ))}
         </li>
-        <li>
-
+        <li className='flex flex-col p-8 gap-5'>
+          <div className="font-bold text-3xl">Practical Experience</div>
+          {formData[1].exp.map((eduExp) => (
+            <PreviewExperience exp={eduExp} />
+          ))}
         </li>
       </ul>
     </>
