@@ -91,6 +91,30 @@ export default function Education({ exp }) {
             className="name border-2 left-[18rem] w-[7.7rem] absolute px-1"
           />
         </label>
+        <label className="text-xl">
+            <div className="flex gap-3">
+              <div className="flex flex-col justify-start">
+                <div className="text-lg">Additional <br></br>Info:{' '}</div>
+              </div>
+              <textarea
+                value={exp.suppInfo}
+                type="text"
+                className="border-2 w-1/2 px-1"
+                onChange={e => {
+                  console.log(exp);
+                  dispatch({
+                    id: exp.id,
+                    type: 'editedExp',
+                    section: 'edu',
+                    blank: 'suppInfo',
+                    content: e.target.value
+                  })
+                }}
+                cols="30"
+                rows="2"
+              />
+            </div>
+          </label>
       </div>
     </form>
   )

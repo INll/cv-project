@@ -31,10 +31,12 @@ function App() {
                 The most professional CV maker... now available for FREE!!</div>
           </div>
           </div>
-          <MainForm>
-            <Preview />
-            {/* {isEditing ? <Preview /> : */}
-            {/* <ul className="divide-y p-2">
+          <MainForm
+            isEditing={isEditing}
+            onClick={() => setIsEditing(!isEditing)}
+          >
+            {isEditing ? (
+            <ul className="divide-y p-2">
               <li>
                 <GeneralInfoForm info={formData[0]} />
               </li>
@@ -44,8 +46,9 @@ function App() {
               <li>
                 <ExperienceForm />
               </li>
-            </ul> */}
-            {/* } */}
+            </ul>
+             ) : (
+              <Preview />)}
           </MainForm>
         </FormUpdateDispatchContext.Provider>
       </FormUpdateDataContext.Provider>
@@ -72,7 +75,6 @@ function formDataReducer(formData, action) {
     }
     case 'editedExp': {
       return formData.map((section) => {
-        console.log(formData);
         if (section.section === action.section) {
           return {
             ...section,
@@ -119,9 +121,11 @@ function formDataReducer(formData, action) {
                   {
                     id: nextIdEdu++,
                     school: '',
-                    title: '',
-                    startDate: '',
-                    endDate: ''
+                    degree: "",
+                    eduStart: '',
+                    eduEnd: '',
+                    suppInfo: ''
+            
                   }
                 ]
               }
@@ -155,7 +159,7 @@ const initialData = [
     name: 'Leung Ka Wai',
     email: 'waileungsunny@gmail.com',
     telNo: '(+852) 5307 1570',
-    selfIntro: "Hi, I'm Wai, welcome to my curriculum vitae!"
+    selfIntro: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita optio beatae explicabo recusandae ipsam blanditiis, perferendis tempore voluptates quae sunt! Laborum quam obcaecati, esse laudantium assumenda dicta nihil exercitationem ullam."
   },
   {
     section: 'edu',
@@ -165,7 +169,8 @@ const initialData = [
         school: 'CityU',
         degree: "Biomedical Engineering (Bachelor's)",
         eduStart: '2018-09-01',
-        eduEnd: '2022-09-01'
+        eduEnd: '2022-09-01',
+        suppInfo: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, magnam modi officia atque explicabo odit officiis omnis cumque sint consectetur accusamus!'
       }
     ]
   },
@@ -178,7 +183,15 @@ const initialData = [
         position: 'Web devloper',
         expStart: '2022',
         expEnd: '2024',
-        role: 'Front End Engineer'
+        role: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, magnam modi officia atque explicabo odit officiis omnis cumque sint consectetur accusamus! Vitae in fugiat voluptatem deserunt consequuntur ipsa officiis aliquam?'
+      },
+      {
+        id: 1,
+        companyName: 'Bad company',
+        position: 'Intern',
+        expStart: '2022',
+        expEnd: '2024',
+        role: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus enim quia culpa, nesciunt expedita similique excepturi, laudantium hic voluptate qui quo sunt perferendis rem, deleniti molestias! Unde ad recusandae voluptatum.'
       }
     ]
   }
