@@ -11,7 +11,7 @@ export default function Preview() {
       <ul className="divide-y p-2">
         <li className='flex flex-col p-8 gap-5'>
           <div className="uppercase font-bold text-[3.25rem]">{formData[0].name}</div>
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between">
             <div className="flex text-xl font-normal gap-5">
               <div className="-translate-y-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23" 
@@ -35,7 +35,7 @@ export default function Preview() {
               </div>
           </div>
           {formData[0].selfIntro.length!== 0 && <div className="quote bg-gradient-to-tr from-stone-100 to-white rounded-xl
-           text-center mx-auto px-10 py-5 w-[630px] border-b-[7px]">{formData[0].selfIntro}</div>}
+           text-center mx-auto my-4 md:my-0 px-6 md:px-10 py-5 md:w-[630px] border-b-[7px]">{formData[0].selfIntro}</div>}
         </li>
         <li className='flex flex-col px-8 pt-8'>
           <div className="font-bold text-3xl">Education</div>
