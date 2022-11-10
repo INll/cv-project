@@ -59,39 +59,43 @@ export default function Experience({ exp }) {
             className="name border-2 absolute left-24 w-1/2 px-1"
           />
         </label>
-        <label className="relative w-[24.8rem] text-xl h-10">
-          <div className="absolute text-lg">Start Date:{' '}</div>
-          <input 
-            value={exp.expStart}
-            onChange={e => {
-              dispatch({
-                id: exp.id,
-                type: 'editedExp',
-                section: 'exp',
-                blank: 'expStart',
-                content: e.target.value
-              });
-            }}
-            type="date" 
-            id="expStart"  
-            className="name border-2 left-24 w-[7.7rem] absolute px-1"
-          />
-          <div className="absolute left-[15rem] text-lg">End:{' '}</div>
-          <input 
-            value={exp.expEnd}
-            onChange={e => {
-              dispatch({
-                id: exp.id,
-                type: 'editedExp',
-                section: 'exp',
-                blank: 'expEnd',
-                content: e.target.value
-              });
-            }}
-            type="date"
-            id="expEnd"  
-            className="name border-2 left-[18rem] w-[7.7rem] absolute px-1"
-          />
+        <label className="flex grow flex-col md:flex-row md:w-[24.8rem] gap-3 md:gap-5 w-[24.8rem] text-xl h-auto md:h-10 pb-2">
+          <div className="flex gap-3 md:gap-0">
+            <div className="text-lg md:w-24">Start Date:{' '}</div>
+            <input
+              value={exp.expStart}
+              onChange={e => {
+                dispatch({
+                  id: exp.id,
+                  type: 'editedExp',
+                  section: 'exp',
+                  blank: 'expStart',
+                  content: e.target.value
+                });
+              }}
+              type="date"
+              id="expStart"
+              className="name border-2 left-24 w-[7.7rem] px-1"
+            />
+          </div>
+          <div className="flex gap-[3.8rem] md:gap-0">
+            <div className="text-lg md:w-[3.15rem]">End:{' '}</div>
+            <input
+              value={exp.expEnd}
+              onChange={e => {
+                dispatch({
+                  id: exp.id,
+                  type: 'editedExp',
+                  section: 'exp',
+                  blank: 'expEnd',
+                  content: e.target.value
+                });
+              }}
+              type="date"
+              id="expEnd"
+              className="border-2 left-[18rem] w-[7.7rem] h-auto px-1"
+            />
+          </div>
         </label>
         <label className="flex text-xl gap-14">
           <div className="w-10">Role:{' '}</div>

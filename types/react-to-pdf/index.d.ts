@@ -1,0 +1,1 @@
+declare module '@kunwarji/react-to-pdf';

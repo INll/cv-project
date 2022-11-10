@@ -21,7 +21,7 @@ function App() {
     <>
       <FormUpdateDataContext.Provider value={formData}>
         <FormUpdateDispatchContext.Provider value={dispatch}>
-          <div className="banner flex max-w-full bg-teal-100 h-[6.5rem]
+          <div className="banner flex w-full bg-teal-100 h-[6.5rem]
            shadow-lg text-lg">
             <div className="titleText relative self-center font-bold
              text-4xl mx-auto bottom-1">
@@ -36,7 +36,7 @@ function App() {
             onClick={() => setIsEditing(!isEditing)}
           >
             {isEditing ? (
-            <ul className="divide-y p-2">
+            <ul className="divide-y p-2 w-full">
               <li>
                 <GeneralInfoForm info={formData[0]} />
               </li>
@@ -156,9 +156,9 @@ function formDataReducer(formData, action) {
 const initialData = [
   {
     section: 'generalInfo',
-    name: 'Leung Ka Wai',
-    email: 'waileungsunny@gmail.com',
-    telNo: '(+852) 5307 1570',
+    name: 'Tom Leung',
+    email: 'tomleung2008@gmail.com',
+    telNo: '(+852) 1234 5678',
     selfIntro: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita optio beatae explicabo recusandae ipsam blanditiis, perferendis tempore voluptates quae sunt! Laborum quam obcaecati, esse laudantium assumenda dicta nihil exercitationem ullam."
   },
   {
@@ -166,8 +166,8 @@ const initialData = [
     exp: [
       {
         id: 0,
-        school: 'CityU',
-        degree: "Biomedical Engineering (Bachelor's)",
+        school: 'Big University of Hong Kong',
+        degree: "Engineering",
         eduStart: '2018-09-01',
         eduEnd: '2022-09-01',
         suppInfo: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, magnam modi officia atque explicabo odit officiis omnis cumque sint consectetur accusamus!'

@@ -29,3 +29,39 @@ export default function EducationForm() {
     </>
   );
 }
+
+
+        {/* <label className="relative w-[24.8rem] text-xl h-10">
+          <div className="absolute text-lg">Start Date:{' '}</div>
+          <input 
+            value={exp.eduStart}
+            onChange={e => {
+              dispatch({
+                id: exp.id,
+                type: 'editedExp',
+                section: 'edu',
+                blank: 'eduStart',
+                content: e.target.value
+              });
+            }}
+            type="date" 
+            id="expStart"  
+            className="name border-2 left-24 w-[7.7rem] absolute px-1"
+          />
+          <div className="absolute left-[15rem] text-lg">End:{' '}</div>
+          <input 
+            value={exp.eduEnd}
+            onChange={e => {
+              dispatch({
+                id: exp.id,
+                type: 'editedExp',
+                section: 'edu',
+                blank: 'eduEnd',
+                content: e.target.value
+              });
+            }}
+            type="date"
+            id="expEnd"  
+            className="name border-2 left-[18rem] w-[7.7rem] absolute px-1"
+          />
+        </label> */}
