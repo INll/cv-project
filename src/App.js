@@ -38,7 +38,7 @@ function App() {
             {isEditing ? (
             <ul className="divide-y p-2 w-full">
               <li>
-                <GeneralInfoForm info={formData[0]} />
+                  <GeneralInfoForm info={formData[0]} />
               </li>
               <li>
                 <EducationForm />
